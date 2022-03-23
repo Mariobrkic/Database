@@ -1,90 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Mario/Downloads/Chinook_Sqlite.sqlite" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="5283"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainTrack"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Album" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="84"/><column index="2" value="300"/><column index="3" value="76"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Artist" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="76"/><column index="2" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Customer" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="111"/><column index="2" value="97"/><column index="3" value="105"/><column index="4" value="300"/><column index="5" value="300"/><column index="6" value="167"/><column index="7" value="55"/><column index="8" value="124"/><column index="9" value="106"/><column index="10" value="165"/><column index="11" value="157"/><column index="12" value="233"/><column index="13" value="131"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Employee" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="112"/><column index="2" value="95"/><column index="3" value="97"/><column index="4" value="157"/><column index="5" value="98"/><column index="6" value="162"/><column index="7" value="162"/><column index="8" value="228"/><column index="9" value="85"/><column index="10" value="55"/><column index="11" value="78"/><column index="12" value="106"/><column index="13" value="148"/><column index="14" value="148"/><column index="15" value="214"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Genre" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="80"/><column index="2" value="144"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="InvoiceLine" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="129"/><column index="2" value="93"/><column index="3" value="75"/><column index="4" value="88"/><column index="5" value="84"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Invoice_log" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="93"/><column index="2" value="111"/><column index="3" value="114"/><column index="4" value="97"/><column index="5" value="132"/><column index="6" value="53"/><column index="7" value="109"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Playlist" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="91"/><column index="2" value="199"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Track" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="75"/><column index="2" value="300"/><column index="3" value="84"/><column index="4" value="121"/><column index="5" value="80"/><column index="6" value="300"/><column index="7" value="115"/><column index="8" value="79"/><column index="9" value="88"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql>
-	
-<sql name="SQL 1">
-	SELECT Artist.Name
-    FROM Artist;
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Mario/Downloads/Chinook_Sqlite.sqlite" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="5283"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainAlbum"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Album" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="84"/><column index="2" value="300"/><column index="3" value="76"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Artist" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="76"/><column index="2" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Customer" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="111"/><column index="2" value="97"/><column index="3" value="105"/><column index="4" value="300"/><column index="5" value="300"/><column index="6" value="167"/><column index="7" value="55"/><column index="8" value="124"/><column index="9" value="106"/><column index="10" value="165"/><column index="11" value="157"/><column index="12" value="233"/><column index="13" value="131"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Employee" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="112"/><column index="2" value="95"/><column index="3" value="97"/><column index="4" value="157"/><column index="5" value="98"/><column index="6" value="162"/><column index="7" value="162"/><column index="8" value="228"/><column index="9" value="85"/><column index="10" value="55"/><column index="11" value="78"/><column index="12" value="106"/><column index="13" value="148"/><column index="14" value="148"/><column index="15" value="214"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Genre" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="80"/><column index="2" value="144"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="InvoiceLine" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="129"/><column index="2" value="93"/><column index="3" value="75"/><column index="4" value="88"/><column index="5" value="84"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Invoice_log" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="93"/><column index="2" value="111"/><column index="3" value="114"/><column index="4" value="97"/><column index="5" value="132"/><column index="6" value="53"/><column index="7" value="109"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Playlist" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="91"/><column index="2" value="199"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Track" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="75"/><column index="2" value="300"/><column index="3" value="84"/><column index="4" value="121"/><column index="5" value="80"/><column index="6" value="300"/><column index="7" value="115"/><column index="8" value="79"/><column index="9" value="88"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">SELECT Artist.Name
+FROM Artist;
 
-</sql>
+</sql><sql name="SQL 2">SELECT * FROM Invoice
+WHERE  Invoice.BillingCountry = 'Germany';
 
-<sql name="SQL 2">
-	SELECT * FROM Invoice
-      WHERE  Invoice.BillingCountry = 'Germany';
+</sql><sql name="SQL 3">SELECT COUNT(*) as broj
+FROM Album;
 
-</sql>
 
-<sql name="SQL 3">
-	SELECT COUNT(*) as broj
-     FROM Album;
 
-</sql>
-
-<sql name="SQL 4">SELECT COUNT(*) as francuza
+</sql><sql name="SQL 4">SELECT COUNT(*) as francuza
 FROM Customer AS c
 WHERE c.Country = 'France';
 
-</sql>
 
-<sql name="SQL 5">SELECT SUM(Total) AS SUM_TOTAL
+
+</sql><sql name="SQL 5">SELECT SUM(Total) AS SUM_TOTAL
 FROM Invoice;
 
-</sql>
 
-<sql name="SQL 6">
+</sql><sql name="SQL 6">
 SELECT AVG(Total)
 FROM Invoice;
-</sql>
-	
-<sql name="SQL 13">SELECT *
 
+
+
+
+</sql><sql name="SQL 7">SELECT *
 FROM Invoice
-
 WHERE 1=1
-
      AND BillingCountry = 'USA'
-
-	 AND Total &gt; 15;
-</sql>
-	
-<sql name="SQL 14">
-	
-	SELECT * FROM Invoice
-
-WHERE BillingCountry IN ('Norway', 'Hungary');
-	
-</sql>
-	
-<sql name="SQL 15">
-	SELECT
-
+	 AND Total &gt; 15;</sql><sql name="SQL 8">SELECT *
+FROM Invoice
+WHERE BillingCountry IN ('Norway', 'Hungary');</sql><sql name="SQL 9">SELECT
    i.CustomerId,
-
    i.BillingCity,
-
    c.FirstName,
-
    c.LastName,
-
    i.total
-
   
-
 FROM 
-
    Invoice i
-
     JOIN Customer c ON i.CustomerId = c.CustomerId
-
 	
-
 WHERE 
-
-    i.BillingCity = 'Stockholm';	
-</sql>
-	
-	
-<sql name="SQL 16">
-	
-	SELECT 
+    i.BillingCity = 'Stockholm';	</sql><sql name="SQL 10">SELECT 
 	c.FirstName, 
 	c.LastName,
 	SUM(i.Total) as SUM_TOTAL
@@ -94,7 +54,4 @@ FROM
 WHERE FirstName in ('Camille', 'Aaron') -- filter
 GROUP BY i.CustomerId -- podzbroj
 ORDER BY 1; -- sort
-	</sql>
-	
-	
-	<current_tab id="8"/></tab_sql></sqlb_project>
+</sql><current_tab id="9"/></tab_sql></sqlb_project>
