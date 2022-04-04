@@ -1,71 +1,238 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Mario/Downloads/Chinook_Sqlite.sqlite" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="5283"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainAlbum"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Album" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="84"/><column index="2" value="300"/><column index="3" value="76"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Artist" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="76"/><column index="2" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Customer" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="111"/><column index="2" value="97"/><column index="3" value="105"/><column index="4" value="300"/><column index="5" value="300"/><column index="6" value="167"/><column index="7" value="55"/><column index="8" value="124"/><column index="9" value="106"/><column index="10" value="165"/><column index="11" value="157"/><column index="12" value="233"/><column index="13" value="131"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Employee" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="112"/><column index="2" value="95"/><column index="3" value="97"/><column index="4" value="157"/><column index="5" value="98"/><column index="6" value="162"/><column index="7" value="162"/><column index="8" value="228"/><column index="9" value="85"/><column index="10" value="55"/><column index="11" value="78"/><column index="12" value="106"/><column index="13" value="148"/><column index="14" value="148"/><column index="15" value="214"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Genre" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="80"/><column index="2" value="144"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="InvoiceLine" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="129"/><column index="2" value="93"/><column index="3" value="75"/><column index="4" value="88"/><column index="5" value="84"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Invoice_log" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="93"/><column index="2" value="111"/><column index="3" value="114"/><column index="4" value="97"/><column index="5" value="132"/><column index="6" value="53"/><column index="7" value="109"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Playlist" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="91"/><column index="2" value="199"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Track" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="75"/><column index="2" value="300"/><column index="3" value="84"/><column index="4" value="121"/><column index="5" value="80"/><column index="6" value="300"/><column index="7" value="115"/><column index="8" value="79"/><column index="9" value="88"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">SELECT MAX(Invoice.Total), *
-FROM Invoice;
-
-/*the most expensive */
-
-SELECT MIN(Invoice.Total), *
-FROM Invoice;
-
-/*the cheapest*/
-
-/* Which city had the most orders? */
-SELECT Invoice.BillingCity, COUNT(*) AS Invoice_num
-FROM Invoice
-GROUP BY Invoice.BillingCity
-ORDER BY Invoice_num DESC;
-
-/*count how many tracks have this MediaType: Protected AAC audio file */
-
-SELECT COUNT(*)
-FROM Track
-JOIN MediaType ON Track.MediaTypeId=MediaType.MediaTypeId
-WHERE MediaType.Name='Protected AAC audio file';
-
-/* or */
-
-SELECT MediaType.Name, COUNT(*)
-FROM Track
-JOIN MediaType ON MediaType.MediaTypeId = Track.MediaTypeId
-GROUP BY Track.MediaTypeId;
-
-/* Artist that has the most albums? */
-SELECT Artist.Name, COUNT(*) as Album_num
-FROM Artist
-JOIN Album ON Album.ArtistId = Artist.ArtistId
-GROUP BY Album.ArtistId
-ORDER BY Album_num DESC;
-
-/* or */
-
-SELECT COUNT(Artist.Name) AS Alb_count, Artist.Name AS Art_name 
-FROM Artist
-INNER JOIN Album ON Album.ArtistId=Artist.ArtistId
-GROUP BY Artist.ArtistId
-ORDER BY -COUNT(Artist.Name)
-
-/*Genre with the most tracks*/
-
-SELECT Genre.Name, COUNT(*) as Track_num
-FROM Genre
-JOIN Track ON Track.GenreId = Genre.GenreId
-GROUP BY Track.GenreId
-ORDER BY Track_num DESC;
-
-/* The customer that spent the most money so far*/
-SELECT Customer.FirstName, Customer.LastName, SUM(Invoice.Total) AS Invoice_sum
-FROM Customer
-JOIN Invoice ON Invoice.CustomerId = Customer.CustomerId
-GROUP BY Invoice.CustomerId
-ORDER BY Invoice_sum DESC;
-
-/* Songs that were bought with each order? */
-
-SELECT Invoice.InvoiceId, Track.Name
-FROM Invoice
-JOIN InvoiceLine ON InvoiceLine.InvoiceId = Invoice.InvoiceId
-JOIN Track ON InvoiceLine.TrackId = Track.TrackId;
-
-
-
-
+<?xml version="1.0" encoding="UTF-8"?>
+<sqlb_project>
+  <db path="C:/Users/Mario/Downloads/Chinook_Sqlite.sqlite" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window>
+  <tab_structure><column_width id="0" width="300"/>
+    <column_width id="1" width="0"/>
+    <column_width id="2" width="125"/>
+    <column_width id="3" width="5283"/>
+    <column_width id="4" width="0"/>
+    <expanded_item id="0" parent="1"/>
+    <expanded_item id="1" parent="1"/>
+    <expanded_item id="2" parent="1"/>
+    <expanded_item id="3" parent="1"/>
+  </tab_structure>
+  <tab_browse><current_table name="4,5:mainAlbum"/><default_encoding codec=""/><browse_table_settings>
+  <table schema="main" name="Album" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/>
+    <column_widths><column index="1" value="84"/>
+    <column index="2" value="300"/>
+    <column index="3" value="76"/>
+    </column_widths>
+    <filter_values/>
+    <conditional_formats/>
+    <row_id_formats/>
+    <display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table>
+    <table schema="main" name="Artist" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/>
+      <column_widths><column index="1" value="76"/>
+        <column index="2" value="300"/>
+      </column_widths>
+      <filter_values/>
+      <conditional_formats/>
+      <row_id_formats/>
+      <display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table>
+    <table schema="main" name="Customer" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/>
+      <column_widths><column index="1" value="111"/>
+        <column index="2" value="97"/>
+        <column index="3" value="105"/>
+        <column index="4" value="300"/>
+        <column index="5" value="300"/>
+        <column index="6" value="167"/>
+        <column index="7" value="55"/>
+        <column index="8" value="124"/>
+        <column index="9" value="106"/>
+        <column index="10" value="165"/>
+        <column index="11" value="157"/>
+        <column index="12" value="233"/>
+        <column index="13" value="131"/>
+      </column_widths>
+      <filter_values/>
+      <conditional_formats/>
+      <row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table>
+    <table schema="main" name="Employee" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/>
+      <column_widths><column index="1" value="112"/>
+        <column index="2" value="95"/>
+        <column index="3" value="97"/>
+        <column index="4" value="157"/>
+        <column index="5" value="98"/>
+        <column index="6" value="162"/>
+        <column index="7" value="162"/>
+        <column index="8" value="228"/>
+        <column index="9" value="85"/>
+        <column index="10" value="55"/>
+        <column index="11" value="78"/>
+        <column index="12" value="106"/>
+        <column index="13" value="148"/>
+        <column index="14" value="148"/>
+        <column index="15" value="214"/>
+      </column_widths>
+      <filter_values/>
+      <conditional_formats/>
+      <row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table>
+     <table schema="main" name="Genre" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/>
+      <column_widths><column index="1" value="80"/>
+      <column index="2" value="144"/>
+       </column_widths>
+       <filter_values/>
+       <conditional_formats/>
+       <row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table>
+     <table schema="main" name="InvoiceLine" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/>
+       <column_widths><column index="1" value="129"/>
+         <column index="2" value="93"/>
+         <column index="3" value="75"/>
+         <column index="4" value="88"/>
+         <column index="5" value="84"/>
+       </column_widths>
+       <filter_values/>
+       <conditional_formats/>
+       <row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table>
+    <table schema="main" name="Invoice_log" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/> 
+      <column_widths><column index="1" value="93"/>
+        <column index="2" value="111"/>
+        <column index="3" value="114"/>
+        <column index="4" value="97"/><
+        column index="5" value="132"/>
+        <column index="6" value="53"/>
+        <column index="7" value="109"/>
+      </column_widths>
+      <filter_values/>
+      <conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table>
+     <table schema="main" name="Playlist" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/>
+       <column_widths><column index="1" value="91"/>
+         <column index="2" value="199"/>
+       </column_widths><filter_values/>
+       <conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table>
+    <table schema="main" name="Track" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/>
+      <column_widths><column index="1" value="75"/>
+        <column index="2" value="300"/>
+        <column index="3" value="84"/>
+        <column index="4" value="121"/>
+        <column index="5" value="80"/>
+        <column index="6" value="300"/>
+        <column index="7" value="115"/>
+        <column index="8" value="79"/>
+        <column index="9" value="88"/>
+      </column_widths>
+      <filter_values/>
+      <conditional_formats/>
+      <row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table>
+    </browse_table_settings></tab_browse>
+  
+  <tab_sql><sql name="SQL 1">
+    
+    SELECT MAX(Invoice.Total), * FROM Invoice;
+
+/*the most expensive */
+
+
+  SELECT MIN(Invoice.Total), * FROM Invoice;
+
+/*the cheapest*/
+
+/* Which city had the most orders? */
+
+SELECT Invoice.BillingCity, COUNT(*) AS Invoice_num
+
+FROM Invoice
+
+GROUP BY Invoice.BillingCity
+
+ORDER BY Invoice_num DESC;
+
+
+
+/*count how many tracks have this MediaType: Protected AAC audio file */
+
+SELECT COUNT(*)
+
+FROM Track
+
+JOIN MediaType ON Track.MediaTypeId=MediaType.MediaTypeId
+
+WHERE MediaType.Name='Protected AAC audio file';
+
+/* or */
+
+
+SELECT MediaType.Name, COUNT(*)
+
+FROM Track
+
+JOIN MediaType ON MediaType.MediaTypeId = Track.MediaTypeId
+
+GROUP BY Track.MediaTypeId;
+
+
+
+/* Artist that has the most albums? */
+
+SELECT Artist.Name, COUNT(*) as Album_num
+
+FROM Artist
+
+JOIN Album ON Album.ArtistId = Artist.ArtistId
+
+GROUP BY Album.ArtistId
+
+ORDER BY Album_num DESC;
+
+/* or */
+
+SELECT COUNT(Artist.Name) AS Alb_count, Artist.Name AS Art_name 
+
+FROM Artist
+
+INNER JOIN Album ON Album.ArtistId=Artist.ArtistId
+
+GROUP BY Artist.ArtistId
+
+ORDER BY -COUNT(Artist.Name)
+
+
+/*Genre with the most tracks*/
+
+SELECT Genre.Name, COUNT(*) as Track_num
+
+FROM Genre
+
+JOIN Track ON Track.GenreId = Genre.GenreId
+
+GROUP BY Track.GenreId
+
+ORDER BY Track_num DESC;
+
+
+
+/* The customer that spent the most money so far*/
+
+SELECT Customer.FirstName, Customer.LastName, SUM(Invoice.Total) AS Invoice_sum
+
+FROM Customer
+
+JOIN Invoice ON Invoice.CustomerId = Customer.CustomerId
+
+GROUP BY Invoice.CustomerId
+
+ORDER BY Invoice_sum DESC;
+
+
+
+/* Songs that were bought with each order? */
+
+
+
+SELECT Invoice.InvoiceId, Track.Name
+
+FROM Invoice
+
+JOIN InvoiceLine ON InvoiceLine.InvoiceId = Invoice.InvoiceId
+
+JOIN Track ON InvoiceLine.TrackId = Track.TrackId;
+
+
+
+
+
+
+
+
+
 </sql><current_tab id="0"/></tab_sql></sqlb_project>
